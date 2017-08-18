@@ -8,3 +8,6 @@
 
 ## Usage
 Run `npm start` from installation folder.
+
+Copyright 2017 Open Banking Limited. All rights reserved.
+The software provided has no warranty, it is provided “as is”. It is your responsibility to validate the behavior of the routines and their accuracy using the source code provided, or to purchase support and warranties from commercial redistributors.
