@@ -22,7 +22,7 @@ const claims = {
   sub: config.softwareStatementId,
   scope: config.clientScopes,
   aud: config.tokenUrl
-}
+};
 
 const created_jwt = nJwt.create(claims, signingKey, 'RS256');
 created_jwt.setHeader('kid', config.keyId);
@@ -42,7 +42,7 @@ const tokenRequestSpec = {
     'client_assertion': compacted_jwt,
     'scope': config.clientScopes
   })
-}
+};
 
 // Send request to get the token
 request(tokenRequestSpec)
@@ -57,7 +57,7 @@ request(tokenRequestSpec)
       headers: {
         "Authorization": `Bearer ${response.data.access_token}`
       }
-    }
+    };
 
     return request(tppRequestSpec);
 
