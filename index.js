@@ -44,6 +44,16 @@ const tokenRequestSpec = {
   })
 };
 
+console.log(chalk.bold.blue("Requesting Access Token..."));
+console.log(tokenRequestSpec);
+console.log();
+
+const errorHandler = function(error) {
+  console.log(chalk.red.bold(error));
+  console.log(chalk.blue.bold("Response body:"));
+  console.log(error.response.data);
+};
+
 // Send request to get the token
 request(tokenRequestSpec)
   .then((response) => {
@@ -72,7 +82,4 @@ request(tokenRequestSpec)
     });
 
   })
-  .catch((err) => {
-    // Display errors
-    console.log(chalk.bold.red('Error:'), err.response.data);
-  })
+  .catch(errorHandler);
