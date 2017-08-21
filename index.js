@@ -1,4 +1,4 @@
-const 
+const
   fs = require('fs'),
   nJwt = require('njwt'),
   qs = require('qs'),
@@ -40,7 +40,7 @@ const tokenRequestSpec = {
 }
 
 // Send request to get the token
-request(tokenRequestSpec)  
+request(tokenRequestSpec)
   .then((response) => {
     console.log(chalk.bold.blue("Token acquired:"), response.data.access_token);
     console.log();
