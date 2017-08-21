@@ -3,10 +3,14 @@ const
   nJwt = require('njwt'),
   qs = require('qs'),
   request = require('axios'),
-  chalk = require('chalk');
+  chalk = require('chalk')
+  boxen = require('boxen');
 
-console.log(chalk.bold.green("Open Banking test tool to obtain Access Token"));
-console.log(chalk.bold.green("---------------------------------------------"));
+console.log(chalk.bold.green(boxen("Open Banking Directory Access Token Acquisition Tool", {
+  margin: 1,
+  padding: 1,
+  style: 'double'
+})));
 console.log();
 
 // Load Private Key and config from files
