@@ -26,8 +26,9 @@ const claims = {
 
 const created_jwt = nJwt.create(claims, signingKey, 'RS256');
 created_jwt.setHeader('kid', config.keyId);
+const compacted_jwt = created_jwt.compact();
 
-console.log(chalk.bold.blue("Created JWT:"), created_jwt.compact());
+console.log(chalk.bold.blue("Created JWT:"), compacted_jwt);
 console.log();
 
 // Configure the request to obtain token
@@ -38,7 +39,7 @@ const tokenRequestSpec = {
     'client_assertion_type': 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
     'grant_type': 'client_credentials',
     'client_id': config.softwareStatementId,
-    'client_assertion': created_jwt.compact(),
+    'client_assertion': compacted_jwt,
     'scope': config.clientScopes
   })
 }
