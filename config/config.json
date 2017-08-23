@@ -1,7 +1,7 @@
 {
-  "softwareStatementId": "",
-  "clientScopes": "",
-  "keyId": "",
-  "tokenUrl": "",
-  "tppTestUrl": ""
+  "softwareStatementId": "b71ff6de-cc91-4db8-a7e9-04fd8810a44d",
+  "clientScopes": "openid TPPReadAccess",
+  "keyId": "e-7p5kKIMOEm-LNpXpUYgKh-0Wg",
+  "tokenUrl": "https://auth-stable.openbanking.xyz/as/token.oauth2",
+  "tppTestUrl": "https://api-stable.openbanking.xyz/scim/v2/OBThirdPartyProviders/"
 }
