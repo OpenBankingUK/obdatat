@@ -1,8 +1,8 @@
 {
-  "softwareStatementId": "3NSP6Y8mcJ4fGt6w2aHwyK",
-  "clientScopes": "ASPSPReadAccess TPPReadAll AuthoritiesReadAccess",
-  "keyId": "rHUre6X9ZGDDQ2oac0Ajnj_hk7U",
-  "tokenUrl": "https://auth.dev2.openbanking.xyz/as/token.oauth2",
-  "tppTestUrl": "https://api.dev2.openbanking.xyz/scim/v2/OBThirdPartyProviders/",
-  "aud": "https://matls-auth.dev2.openbanking.xyz/as/token.oauth2"
+  "softwareStatementId": "",
+  "clientScopes": "",
+  "keyId": "",
+  "tokenUrl": "https://matls-sso.openbanking.org.uk/as/token.oauth2",
+  "tppTestUrl": "https://matls-api.openbanking.org.uk/scim/v2/OBThirdPartyProviders",
+  "aud": "https://matls-sso.openbanking.org.uk/as/token.oauth2"
 }
