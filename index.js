@@ -26,7 +26,6 @@ const transportKey = fs.readFileSync(`${__dirname}/config/privateKeyTransport.ke
 const trustedCa = [
   `${__dirname}/config/root.pem`,
   `${__dirname}/config/issuingca.pem`,
-  `${__dirname}/config/signingca.pem`
 ];
 
 const claims = {
@@ -89,8 +88,8 @@ request(tokenRequestSpec)
 
   // Configure the request for test endpoint - list of TPPs
   const tppRequestSpec = {
-    url: config.tppTestUrl,
-    httpsAgent: httpsAgent, 
+    url: config.testUrl,
+    httpsAgent: httpsAgent,
     method: "GET",
     headers: {
       "Authorization": `Bearer ${response.data.access_token}`
@@ -101,15 +100,22 @@ request(tokenRequestSpec)
 
 })
 .then((response) => {
+  console.log();
+  console.log(chalk.bold.yellow("Response Headers"), response.headers);
 
-  // Test request to get the list of TPPs
-  response.data.Resources.forEach((tpp) => {
-    const org = tpp['urn:openbanking:organisation:1.0'];
-    const auth = tpp['urn:openbanking:competentauthorityclaims:1.0'];
-    const authorisation =tpp['urn:openbanking:accountservicepaymentserviceprovider:1.0'];
+  console.log();
+  console.log(chalk.bold.yellow("Response Body"), response.data);
 
-    console.log("-", org.OrganisationCommonName, "-", auth.Authorisations);
-  });
+  if (response.headers['content-type'] == 'application/jwt') {
+    let jwt_bits = response.data.toString().split('.');
+    let decoded_header = new Buffer(jwt_bits[0], 'base64').toString('utf-8');
+    let decoded_claims = new Buffer(jwt_bits[1], 'base64').toString('utf-8');
 
+    console.log();
+    console.log(chalk.bold.yellow("JWT Header"), JSON.stringify(JSON.parse(decoded_header), null, 2));
+
+    console.log();
+    console.log(chalk.bold.yellow("JWT Claims"), JSON.stringify(JSON.parse(decoded_claims), null, 2));
+  }
 })
 .catch(errorHandler);
