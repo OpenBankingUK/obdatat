@@ -87,7 +87,7 @@ request(tokenRequestSpec)
   console.log();
 
   // Configure the request for test endpoint - list of TPPs
-  const tppRequestSpec = {
+  const testRequestSpec = {
     url: config.testUrl,
     httpsAgent: httpsAgent,
     method: "GET",
@@ -96,7 +96,7 @@ request(tokenRequestSpec)
     }
   };
 
-  return request(tppRequestSpec);
+  return request(testRequestSpec);
 
 })
 .then((response) => {
