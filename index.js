@@ -107,6 +107,9 @@ request(tokenRequestSpec)
   console.log(chalk.bold.yellow("Response Body"), response.data);
 
   if (response.headers['content-type'] == 'application/jwt') {
+    console.log();
+    console.log(chalk.bold.yellow("Response was a JWT..."));
+
     let jwt_bits = response.data.toString().split('.');
     let decoded_header = new Buffer(jwt_bits[0], 'base64').toString('utf-8');
     let decoded_claims = new Buffer(jwt_bits[1], 'base64').toString('utf-8');
