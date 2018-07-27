@@ -3,6 +3,6 @@
   "clientScopes": "",
   "keyId": "",
   "tokenUrl": "https://matls-sso.openbanking.org.uk/as/token.oauth2",
-  "tppTestUrl": "https://matls-api.openbanking.org.uk/scim/v2/OBThirdPartyProviders",
+  "testUrl": "https://matls-api.openbanking.org.uk/scim/v2/OBThirdPartyProviders",
   "aud": "https://matls-sso.openbanking.org.uk/as/token.oauth2"
 }
