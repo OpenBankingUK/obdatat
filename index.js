@@ -29,10 +29,10 @@ const trustedCa = [
 ];
 
 const claims = {
-iss: config.softwareStatementId,
-sub: config.softwareStatementId,
-scope: config.clientScopes,
-aud: config.aud
+  iss: config.softwareStatementId,
+  sub: config.softwareStatementId,
+  scope: config.clientScopes,
+  aud: config.aud
 };
 
 const created_jwt = nJwt.create(claims, signingKey, 'RS256');
