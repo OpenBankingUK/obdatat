@@ -87,7 +87,7 @@ request(tokenRequestSpec)
   console.log(chalk.bold.blue("Token acquired:"), response.data.access_token);
   console.log();
 
-  // Configure the request for test endpoint - list of TPPs
+  // Configure the request for test endpoint - list of Participants
   const tppRequestSpec = {
     url: config.tppTestUrl,
     httpsAgent: httpsAgent, 
@@ -102,11 +102,11 @@ request(tokenRequestSpec)
 })
 .then((response) => {
 
-  // Test request to get the list of TPPs
-  response.data.Resources.forEach((tpp) => {
-    const org = tpp['urn:openbanking:organisation:1.0'];
-    const auth = tpp['urn:openbanking:competentauthorityclaims:1.0'];
-    const authorisation =tpp['urn:openbanking:accountservicepaymentserviceprovider:1.0'];
+  // Test request to get the list of Participants
+  response.data.Resources.forEach((participant) => {
+    const org = participant['urn:openbanking:organisation:1.0'];
+    const auth = participant['urn:trustframework:competentauthorityclaims:1.1'];
+    const authorisation =participant['urn:trustframework:competentauthorityclaims:1.1.Authorisations'];
 
     console.log("-", org.OrganisationCommonName, "-", auth.Authorisations);
   });
