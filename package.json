@@ -11,7 +11,7 @@
   "author": "Open Banking Limited",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.21.0",
     "boxen": "^1.2.1",
     "chalk": "^2.1.0",
     "https": "^1.0.0",
