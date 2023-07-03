@@ -1,7 +1,8 @@
 {
-  "softwareStatementId": "",
-  "clientScopes": "",
-  "keyId": "",
+  "softwareStatementId": "1XCHnTdeXUYlLLLJRIc0bQ",
+  "clientScopes": "ASPSPReadAccess TPPReadAll AuthoritiesReadAccess",
+  "keyId": "ZltaC16DGfhmwZiKQQwfZNmuYSE",
+  "passphrase": null,
   "tokenUrl": "https://matls-sso.openbankingtest.org.uk/as/token.oauth2",
   "tppTestUrl": "https://matls-api.openbankingtest.org.uk/scim/v2/participants/",
   "aud": "https://matls-sso.openbankingtest.org.uk/as/token.oauth2"

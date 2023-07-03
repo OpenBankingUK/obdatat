@@ -35,8 +35,14 @@ sub: config.softwareStatementId,
 scope: config.clientScopes,
 aud: config.aud
 };
-
-const created_jwt = nJwt.create(claims, signingKey, 'RS256');
+const created_jwt = nJwt.create(
+  claims,
+  {
+    key: signingKey,
+    passphrase: config.passphrase === null ? undefined : config.passphrase,
+  },
+  'RS256'
+);
 created_jwt.setHeader('kid', config.keyId);
 const compacted_jwt = created_jwt.compact();
 
@@ -50,10 +56,11 @@ https.globalAgent.options.ca = [];
 for (const ca of trustedCa) {
   https.globalAgent.options.ca.push(fs.readFileSync(ca));
   httpsAgent = new https.Agent({
-      cert: transportCert,
-      key: transportKey,
-      ca: https.globalAgent.options.ca,
-      rejectUnauthorized: true
+    cert: transportCert,
+    key: transportKey,
+    passphrase: config.passphrase === null ? undefined : config.passphrase,
+    ca: https.globalAgent.options.ca,
+    rejectUnauthorized: true,
   });
 }
 
