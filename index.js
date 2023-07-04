@@ -44,7 +44,10 @@ const created_jwt = nJwt.create(
   claims,
   {
     key: signingKey,
-    passphrase: config.passphrase === null ? undefined : config.passphrase,
+    passphrase:
+      config.signingCert_passphrase === null
+        ? undefined
+        : config.signingCert_passphrase,
   },
   'RS256'
 );
@@ -62,7 +65,10 @@ for (const ca of trustedCa) {
   httpsAgent = new https.Agent({
     cert: transportCert,
     key: transportKey,
-    passphrase: config.passphrase === null ? undefined : config.passphrase,
+    passphrase:
+      config.transportCert_passphrase === null
+        ? undefined
+        : config.transportCert_passphrase,
     ca: https.globalAgent.options.ca,
     rejectUnauthorized: true,
   });
