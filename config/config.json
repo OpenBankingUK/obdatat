@@ -2,6 +2,8 @@
   "softwareStatementId": "",
   "clientScopes": "",
   "keyId": "",
+  "signingCert_passphrase": null,
+  "transportCert_passphrase": null,
   "tokenUrl": "https://matls-sso.openbankingtest.org.uk/as/token.oauth2",
   "tppTestUrl": "https://matls-api.openbankingtest.org.uk/scim/v2/participants/",
   "aud": "https://matls-sso.openbankingtest.org.uk/as/token.oauth2"
