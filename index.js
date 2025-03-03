@@ -1,13 +1,14 @@
-const fs = require('fs'),
-  nJwt = require('njwt'),
-  qs = require('qs'),
-  request = require('axios'),
-  https = require('https'),
-  chalk = require('chalk'),
-  boxen = require('boxen');
+import fs from 'fs';
+import nJwt from 'njwt';
+import qs from 'qs';
+import request from 'axios';
+import chalk from 'chalk';
+import https from 'https';
+import boxen from 'boxen';
+import path from 'path';
 
 console.log(
-  chalk.bold.green(
+  chalk.green.bold(
     boxen('Open Banking Directory Access Token Acquisition Tool', {
       margin: 1,
       padding: 1,
@@ -16,6 +17,8 @@ console.log(
   )
 );
 console.log();
+
+const __dirname = path.resolve();
 
 // Load Private Key and config from files
 const config = JSON.parse(fs.readFileSync(`${__dirname}/config/config.json`));
