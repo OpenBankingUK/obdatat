@@ -4,7 +4,9 @@
   "keyId": "",
   "signingCert_passphrase": null,
   "transportCert_passphrase": null,
-  "tokenUrl": "https://matls-sso.openbankingtest.org.uk/as/token.oauth2",
-  "tppTestUrl": "https://matls-api.openbankingtest.org.uk/scim/v2/participants/",
-  "aud": "https://matls-sso.openbankingtest.org.uk/as/token.oauth2"
+  "environment": "sandbox",
+  "signingCert": "config/certSigning.pem",
+  "signingKey": "config/privateKeySigning.key",
+  "transportCert": "config/certTransport.pem",
+  "transportKey": "config/privateKeyTransport.key"
 }
