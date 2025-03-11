@@ -10,7 +10,7 @@ For non-MATLS (old) version of this tool check `non-matls` branch.
 1. Clone this repository
 1. [Create new Software Statement in the OB DFI](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/3242196993/Open+Banking+Directory+Usage+-+eIDAS+release+Production+-+v2.5#OpenBankingDirectoryUsage-eIDASrelease(Production)-v2.5-6.CreateSoftwareStatements)
 1. [Generate 2 keypairs for the Signing and Transport certs and create CSRs](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/3242196993/Open+Banking+Directory+Usage+-+eIDAS+release+Production+-+v2.5#OpenBankingDirectoryUsage-eIDASrelease(Production)-v2.5-7.CreateaCertificateSigningRequest(CSR)forOpenBankingnon-ETSIcertificates)
-1. [Generate certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/3242196993/Open+Banking+Directory+Usage+-+eIDAS+release+Production+-+v2.5#OpenBankingDirectoryUsage-eIDASrelease(Production)-v2.5-9.GenerateandmanageTransportandSigningCertificatesforOpenBankingETSIcertificates(OBWACandOBSeal))
+1. [Generate certificates and download their PEM files](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/3242196993/Open+Banking+Directory+Usage+-+eIDAS+release+Production+-+v2.5#OpenBankingDirectoryUsage-eIDASrelease(Production)-v2.5-9.GenerateandmanageTransportandSigningCertificatesforOpenBankingETSIcertificates(OBWACandOBSeal))
 1. Copy both keys and certificates to the `config` folder
 1. Update `config/config.json` file with the required data (reference below)
 1. Run `npm install` from installation folder
