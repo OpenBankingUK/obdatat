@@ -7,7 +7,7 @@ This tool demonstrates how to acquire an access token and use it to execute an A
 
 ## Setup
 1. Clone this repository.
-1. [Create a new Software Statement using the Directory Interface (https://openbanking.atlassian.net/wiki/spaces/DZ/pages/3242196993/Open+Banking+Directory+Usage+-+eIDAS+release+Production+-+v2.5#OpenBankingDirectoryUsage-eIDASrelease(Production)-v2.5-6.CreateSoftwareStatements).
+1. [Create a new Software Statement using the Directory Interface](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/3242196993/Open+Banking+Directory+Usage+-+eIDAS+release+Production+-+v2.5#OpenBankingDirectoryUsage-eIDASrelease(Production)-v2.5-6.CreateSoftwareStatements).
 1. [Generate 2 keypairs for the Signing and Transport certificates and create CSRs](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/3242196993/Open+Banking+Directory+Usage+-+eIDAS+release+Production+-+v2.5#OpenBankingDirectoryUsage-eIDASrelease(Production)-v2.5-7.CreateaCertificateSigningRequest(CSR)forOpenBankingnon-ETSIcertificates).
 1. [Generate certificates and download their PEM files](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/3242196993/Open+Banking+Directory+Usage+-+eIDAS+release+Production+-+v2.5#OpenBankingDirectoryUsage-eIDASrelease(Production)-v2.5-9.GenerateandmanageTransportandSigningCertificatesforOpenBankingETSIcertificates(OBWACandOBSeal)).
 1. Copy both keys and certificates to the `config` folder.
