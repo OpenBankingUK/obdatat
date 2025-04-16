@@ -2,7 +2,11 @@
   "softwareStatementId": "",
   "clientScopes": "",
   "keyId": "",
-  "tokenUrl": "https://matls-sso.openbanking.org.uk/as/token.oauth2",
-  "tppTestUrl": "https://matls-api.openbanking.org.uk/scim/v2/participants",
-  "aud": "https://matls-sso.openbanking.org.uk/as/token.oauth2"
+  "signingCert_passphrase": null,
+  "transportCert_passphrase": null,
+  "environment": "sandbox",
+  "signingCert": "config/certSigning.pem",
+  "signingKey": "config/privateKeySigning.key",
+  "transportCert": "config/certTransport.pem",
+  "transportKey": "config/privateKeyTransport.key"
 }
