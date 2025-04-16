@@ -18,30 +18,41 @@ console.log(
 );
 console.log();
 
-const __dirname = path.resolve();
-
 // Load Private Key and config from files
+const __dirname = path.resolve();
 const config = JSON.parse(fs.readFileSync(`${__dirname}/config/config.json`));
-const signingCert = fs.readFileSync(`${__dirname}/config/certSigning.pem`);
-const signingKey = fs.readFileSync(`${__dirname}/config/privateKeySigning.key`); // ES512
-const transportCert = fs.readFileSync(`${__dirname}/config/certTransport.pem`);
+const signingCert = fs.readFileSync(`${__dirname}/${config.signingCert}`);
+const signingKey = fs.readFileSync(`${__dirname}/${config.signingKey}`); // ES512
+const transportCert = fs.readFileSync(`${__dirname}/${config.transportCert}`);
 const transportKey = fs.readFileSync(
-  `${__dirname}/config/privateKeyTransport.key`
+  `${__dirname}/${config.transportKey}`
 ); // ES512
+if (!["production", "sandbox"].includes(config.environment)) {
+  throw new Error(`Invalid environment ${config.environment}, use either "sandbox" or "production"`);
+}
+const tokenUrl = config.environment === "production" ?
+  "https://matls-sso.openbanking.org.uk/as/token.oauth2" :
+  "https://matls-sso.openbankingtest.org.uk/as/token.oauth2";
+const tppTestUrl = config.environment === "production" ?
+  "https://matls-api.openbanking.org.uk/scim/v2/participants" :
+  "https://matls-api.openbankingtest.org.uk/scim/v2/participants/";
+const aud = config.environment === "production" ?
+  "https://matls-sso.openbanking.org.uk/as/token.oauth2" :
+  "https://matls-sso.openbankingtest.org.uk/as/token.oauth2";
 
 // Node doesn't support concatenated CAs in a single PEM
 // Read both files into the globalAgents file one at a time.
 const trustedCa = [
-  `${__dirname}/config/root.pem`,
-  `${__dirname}/config/issuingca.pem`,
-  `${__dirname}/config/signingca.pem`,
+  `${__dirname}/config/${config.environment}/root.pem`,
+  `${__dirname}/config/${config.environment}/issuingca.pem`,
+  `${__dirname}/config/${config.environment}/signingca.pem`,
 ];
 
 const claims = {
   iss: config.softwareStatementId,
   sub: config.softwareStatementId,
   scope: config.clientScopes,
-  aud: config.aud,
+  aud: aud,
 };
 const created_jwt = nJwt.create(
   claims,
@@ -79,7 +90,7 @@ for (const ca of trustedCa) {
 
 // Configure the request to obtain token
 const tokenRequestSpec = {
-  url: config.tokenUrl,
+  url: tokenUrl,
   httpsAgent: httpsAgent,
   method: 'POST',
   data: qs.stringify({
@@ -110,7 +121,7 @@ request(tokenRequestSpec)
 
     // Configure the request for test endpoint - list of Participants
     const tppRequestSpec = {
-      url: config.tppTestUrl,
+      url: tppTestUrl,
       httpsAgent: httpsAgent,
       method: 'GET',
       headers: {
@@ -128,7 +139,7 @@ request(tokenRequestSpec)
         participant['urn:trustframework:competentauthorityclaims:1.1'];
       const authorisation =
         participant[
-          'urn:trustframework:competentauthorityclaims:1.1.Authorisations'
+        'urn:trustframework:competentauthorityclaims:1.1.Authorisations'
         ];
 
       console.log('-', org.OrganisationCommonName, '-', auth.Authorisations);
